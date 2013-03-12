@@ -2,7 +2,7 @@ require 'rest_client'
 require 'json'
 
 # configure variable below
-HEROKU_API = '28af90ef256dc73e159d4538d6c3ec1f'
+HEROKU_API = ''
 FACEBOOK_APP_ID = ''
 FACEBOOK_APP_SECRET = ''
 
