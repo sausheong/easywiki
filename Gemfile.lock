@@ -85,7 +85,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  creole
+  creole (= 0.5.0)
   data_mapper (= 1.2.0)
   dm-pager (= 1.1.0)
   dm-postgres-adapter (= 1.2.0)
