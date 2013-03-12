@@ -1,0 +1,15 @@
+%section
+  .container.content
+    %h2 
+      %i.icon-pencil
+      Edit Page: #{@page.url}
+    .row
+      .span12
+        %form{method: 'post', action: "/#{@page.url}"}
+          %p.text-info.lead
+            Edit this page and click on the done button below.
+          %textarea.span10{name: 'content', placeholder: 'Type your page contents here', rows: 15}~@page.latest
+          
+          .form-actions
+            %input.btn.btn-primary{type: 'submit', value: 'Done'}
+            %a.btn{href: "/#{@page.url}"} Cancel

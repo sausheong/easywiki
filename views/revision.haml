@@ -1,0 +1,26 @@
+%section
+  .container.content
+    .row
+      .span12
+        %h2
+          =@page.url
+          revision : (#{@revision})
+        =format(@version.content)
+      .span12
+        &nbsp;
+      .span12
+        %p.muted.x-small
+          %small
+            Revision by 
+            %a{href:@version.user_link}
+              =@version.user_name || "Wiki-owner"
+            =@version.created_at.strftime('%e %b %Y, %l:%M %P')
+      .span12
+        %a.btn{href: "/#{@page.url}/history"}
+          %i.icon-arrow-left
+          Back to revision history
+          
+        - if session[:user] and @revision != 'latest' 
+          %a.btn{href: "/#{@page.url}/set-latest/#{@revision}"}
+            %i.icon-asterisk
+            Set this as latest revision

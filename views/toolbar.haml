@@ -1,0 +1,59 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+
+      %button.btn.btn-navbar.collapsed{'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      %ul.nav
+        %a.brand{href:"/"}
+          =WIKI_NAME
+
+      .nav-collapse        
+        %ul.nav
+          %li.divider-vertical
+          %li
+            %a{href: "/page/sitemap"}
+              %i.icon-sitemap
+              Map
+          - if @page
+            %form.hide#delete{method: 'post', action: "/#{@page.url}"}
+              %input{type: 'hidden', name: '_method', value: 'delete'}          
+            %li
+              %a{href: "/#{@page.url}/history"}
+                %i.icon-time
+                History
+
+            - if session[:user]
+              - if request.path.end_with?('edit')
+                %li
+                  %a{href: "/#{@page.url}"} 
+                    %i.icon-eye-open
+                    View               
+              - else
+                %li
+                  %a{href: "/#{@page.url}/edit"} 
+                    %i.icon-pencil
+                    Edit 
+                %li
+                  %a{href:"#", onclick: "$('#delete').submit();"}
+                    %i.icon-remove
+                    delete              
+
+        %ul.nav.pull-right
+          - if session[:user]
+            %li.dropdown
+              %a.dropdown-toggle{:href => "#", 'data-toggle' => 'dropdown' }
+                %i.icon-user
+                =session[:user]['name']
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => '/auth/logout'} Sign out
+          - else
+            %li
+              %a{:href => '/auth/login'} 
+                %i.icon-facebook-sign
+                Sign in

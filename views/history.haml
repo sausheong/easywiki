@@ -1,0 +1,24 @@
+%section
+  .container.content
+    .row
+      .span12
+        %h2           
+          =@page.url
+          \: Revision history
+        %p.text-info.lead History of changes to this page.
+      .span12
+        %ul.unstyled
+          - @page.versions.reverse.each do |version|
+            %li
+              %i.icon-time
+              %a{href: "/#{@page.url}/history/#{version.id}"}=version.created_at.strftime('%e %b %Y, %l:%M %P')               
+              by
+              %a{href: version.user_link}
+                =version.user_name || 'Not specified'
+
+      .span12
+        &nbsp;
+      .span12
+        %a.btn{href: "/#{@page.url}"}
+          %i.icon-bookmark
+          Go to current revision

@@ -1,0 +1,22 @@
+%section
+  .container.content
+    .row
+      .span12
+        %h2=@page.url
+        =format(@page.latest)
+
+      .span12
+        &nbsp;
+      .span12
+        %p.muted.x-small
+          %small
+            Created by 
+            %a{href:@page.user_link}
+              =@page.user_name || "Wiki-owner"
+            =@page.created_at.strftime('%e %b %Y, %l:%M %P')
+            %br
+            Last modified by 
+            %a{href:@page.versions.last.user_link}
+              =@page.versions.last.user_name
+            =@page.versions.last.created_at.strftime('%e %b %Y, %l:%M %P')
+    
