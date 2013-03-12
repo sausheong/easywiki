@@ -47,5 +47,48 @@ Add the configuration settings using `heroku config:add <env variable>=<value>`.
 
 Assuming you have a Heroku account, have the Heroku toolbelt installed, do the following to a wiki called MyWiki:
 
+    > git clone https://github.com/sausheong/easywiki.git
+    Cloning into 'mywiki'...
+    remote: Counting objects: 37, done.
+    remote: Compressing objects: 100% (27/27), done.
+    remote: Total 37 (delta 11), reused 32 (delta 9)
+    Unpacking objects: 100% (37/37), done.  
     > heroku create mywiki
-    >
+    Creating mywiki... done, stack is cedar
+    http://mywiki.herokuapp.com/ | git@heroku.com:mywiki.git
+    Git remote heroku added
+    > git push heroku master
+    Counting objects: 37, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (36/36), done.
+    Writing objects: 100% (37/37), 11.43 KiB, done.
+    Total 37 (delta 11), reused 0 (delta 0)
+
+    -----> Ruby/Rack app detected
+    -----> Installing dependencies using Bundler version 1.3.2
+           Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
+           Fetching gem metadata from https://rubygems.org/.........
+           ...
+           Cleaning up the bundler cache.
+    -----> Discovering process types
+           Procfile declares types     -> (none)
+           Default types for Ruby/Rack -> console, rake, web
+
+    -----> Compiled slug size: 3.6MB
+    -----> Launching... done, v4
+           http://mywiki.herokuapp.com deployed to Heroku
+
+    To git@heroku.com:mywiki.git
+     * [new branch]      master -> master
+     > heroku config:add FACEBOOK_APP_ID=xxx
+     Setting config vars and restarting mywiki... done, v5
+     FACEBOOK_APP_ID: xxx
+     > heroku config:add FACEBOOK_APP_SECRET=xxx
+     Setting config vars and restarting mywiki... done, v6
+     FACEBOOK_APP_SECRET: xxx
+     > heroku config:add POSTGRES_STRING=xxx
+     Setting config vars and restarting mywiki... done, v7
+     POSTGRES_STRING: xxx
+     >
+
+

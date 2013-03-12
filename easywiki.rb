@@ -1,7 +1,7 @@
 # settings
 BOOTSTRAP_THEME = ENV['BOOTSTRAP_THEME'] || '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css'
 WIKI_NAME = ENV['WIKI_NAME'] || 'EasyWiki'
-WHITELIST = ENV['WHITELIST'].empty? ? [] : ENV['WHITELIST'].split(',')
+WHITELIST = ENV['WHITELIST'].nil? or ENV['WHITELIST'].empty? ? [] : ENV['WHITELIST'].split(',')
 
 # helper module
 module EasyHelper
