@@ -1,10 +1,24 @@
-# to install do this - 
-# > bundle exec irb -r ./install.rb
+require 'rest_client'
+require 'json'
 
-require 'data_mapper'
-require 'sinatra'
-require './easywiki'
-DataMapper.auto_migrate!
-page = Page.create url: 'Index'
-page.versions.create content: '', user_name: 'Wiki-owner'
-exit
+# configure variable below
+HEROKU_API = '28af90ef256dc73e159d4538d6c3ec1f'
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
+
+# installation script executes from here
+# Create app
+heroku_url = "https://:#{HEROKU_API}@api.heroku.com/apps"
+response = RestClient.post heroku_url, "app[stack]=cedar", "Accept"=>"application/json"
+app = JSON.parse response
+
+# Set the configurations
+config = {'FACEBOOK_APP_ID' => FACEBOOK_APP_ID, 'FACEBOOK_APP_SECRET' => FACEBOOK_APP_SECRET}
+response = RestClient.put "#{heroku_url}/#{app['name']}/config_vars", config.to_json, "Accept"=>"application/json"
+
+# Push the code up to Heroku
+system "git remote add heroku #{app['git_url']}"
+system "git push heroku master"
+
+# Show the final url
+puts app['web_url']

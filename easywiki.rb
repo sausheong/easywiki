@@ -30,7 +30,7 @@ module EasyHelper
 end
 
 # models
-DataMapper.setup(:default, ENV['POSTGRES_STRING'])
+DataMapper.setup(:default, ENV['DATABASE_URL'])
 
 class Page
   include DataMapper::Resource
@@ -73,6 +73,15 @@ configure do
   enable :inline_templates
   set :session_secret, ENV['SESSION_SECRET'] ||= 'sausheong_secret_stuff'
   set :show_exceptions, false
+  
+  # installation steps  
+  unless DataMapper.repository(:default).adapter.storage_exists?('page')
+    DataMapper.auto_upgrade!
+  end
+  unless Page.count > 0    
+    page = Page.create url: 'Index'
+    page.versions.create content: '', user_name: 'Wiki-owner'  
+  end
 end
 
 helpers EasyHelper
