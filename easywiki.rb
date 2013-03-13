@@ -1,7 +1,7 @@
 # settings
 BOOTSTRAP_THEME = ENV['BOOTSTRAP_THEME'] || '//netdna.bootstrapcdn.com/bootswatch/2.3.0/journal/bootstrap.min.css'
 WIKI_NAME = ENV['WIKI_NAME'] || 'EasyWiki'
-WHITELIST = ENV['WHITELIST'].nil? or ENV['WHITELIST'].empty? ? [] : ENV['WHITELIST'].split(',')
+WHITELIST = (ENV['WHITELIST'].nil? || ENV['WHITELIST'].empty? ? [] : ENV['WHITELIST'].split(','))
 
 # helper module
 module EasyHelper
