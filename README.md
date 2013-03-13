@@ -18,15 +18,18 @@ EasyWiki is a all-in-a-file wiki web app written in Ruby. What that means is tha
 
 You need these few things.
 
+### A Heroku account
+
+You will need to sign up for a Heroku account. If you are using the installation script, you will need to get the Heroku API key from https://dashboard.heroku.com/account before you start using the script.
+
 ### Facebook app
 
-EasyWiki integrates with Facebook for authentication. Create a Facebook app through http://developers.facebook.com. Then look out for the *App ID* and *App Secret*. Use the values to set the environment variables *FACEBOOK_APP_ID* and *FACEBOOK_APP_SECRET* accordingly.
+EasyWiki integrates with Facebook for authentication. Create a Facebook app through http://developers.facebook.com. Then look out for the *App ID* and *App Secret*. If you are using the installation script, you will be asked for these two pieces of information. Please remember to set your Facebook app to integrate with your wiki through 'Website with Facebook Login', with the Site URL set to http://[your app name].herokuapp.com:80/
+
+If you have entered the wrong ID and secret, you can set them again. Use the values to set the environment variables *FACEBOOK_APP_ID* and *FACEBOOK_APP_SECRET* accordingly.
 
 Don't like Facebook? Deal with it, or modify it to integrate with what you like or write your own authentication mechanism. Simply change the `/auth/login` route and there you go.
 
-### Relational database
-
-I used Postgres, specifically, Heroku Postgres from http://postgres.heroku.com for persistent storage, along with DataMapper. They have a free dev database, if you don't feel like paying for one. Create the database string. It should be in the form `postgres://<username>:<password>@<hostname>:<port>/<database>`. The set the environment variable `POSTGRES_STRING`
   
 ## Whitelist of authors
 
@@ -45,50 +48,8 @@ Add the configuration settings using `heroku config:add <env variable>=<value>`.
   
 ## Installing on Heroku
 
-Assuming you have a Heroku account, have the Heroku toolbelt installed, do the following to a wiki called MyWiki:
-
-    > git clone https://github.com/sausheong/easywiki.git
-    Cloning into 'mywiki'...
-    remote: Counting objects: 37, done.
-    remote: Compressing objects: 100% (27/27), done.
-    remote: Total 37 (delta 11), reused 32 (delta 9)
-    Unpacking objects: 100% (37/37), done.  
-    > heroku create mywiki
-    Creating mywiki... done, stack is cedar
-    http://mywiki.herokuapp.com/ | git@heroku.com:mywiki.git
-    Git remote heroku added
-    > git push heroku master
-    Counting objects: 37, done.
-    Delta compression using up to 4 threads.
-    Compressing objects: 100% (36/36), done.
-    Writing objects: 100% (37/37), 11.43 KiB, done.
-    Total 37 (delta 11), reused 0 (delta 0)
-
-    -----> Ruby/Rack app detected
-    -----> Installing dependencies using Bundler version 1.3.2
-           Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
-           Fetching gem metadata from https://rubygems.org/.........
-           ...
-           Cleaning up the bundler cache.
-    -----> Discovering process types
-           Procfile declares types     -> (none)
-           Default types for Ruby/Rack -> console, rake, web
-
-    -----> Compiled slug size: 3.6MB
-    -----> Launching... done, v4
-           http://mywiki.herokuapp.com deployed to Heroku
-
-    To git@heroku.com:mywiki.git
-     * [new branch]      master -> master
-     > heroku config:add FACEBOOK_APP_ID=xxx
-     Setting config vars and restarting mywiki... done, v5
-     FACEBOOK_APP_ID: xxx
-     > heroku config:add FACEBOOK_APP_SECRET=xxx
-     Setting config vars and restarting mywiki... done, v6
-     FACEBOOK_APP_SECRET: xxx
-     > heroku config:add POSTGRES_STRING=xxx
-     Setting config vars and restarting mywiki... done, v7
-     POSTGRES_STRING: xxx
-     >
-
-
+The fastest way to install is to run the installation script and follow the instructions.
+    
+    > ruby ./install.rb
+    
+Then enter the Heroku API key, Facebook App ID and App Secret when asked. At the end of the script you will be provided with your new wiki!
