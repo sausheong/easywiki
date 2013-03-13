@@ -1,6 +1,12 @@
 # EasyWiki
 
-EasyWiki is a all-in-a-file wiki web app written in Ruby. What that means is that the entire web application is written into a single file that's ~400 lines of code. It's meant to be easy to deploy, maintain and extend.
+EasyWiki is a all-in-a-file wiki web app written in Ruby. What that means is that the entire web application is written into a single file that's ~400 lines of code. It's meant to be easy to deploy, maintain and extend. 
+
+Now you can install EasyWiki into Heroku in just 3 steps!
+
+1. Sign up for a Heroku account
+2. Register a Facebook app
+3. Run the installation script and follow the instructions
 
 ## Features
 
@@ -8,11 +14,12 @@ EasyWiki is a all-in-a-file wiki web app written in Ruby. What that means is tha
 * Only authenticated users can contribute to EasyWiki
 * Only the author of a page can delete the page
 * Has a sitemap of all pages
-* Write wiki pages using [[http://www.wikicreole.org|Creole]] wiki syntax 
+* Write wiki pages using [Creole](http://www.wikicreole.org) wiki syntax 
 * Editing a page creates new version of the page
 * Keeps a revision history of all versions to any page
 ** Can view any past revision
 ** Can set the page back to any past revision
+* Easy 3-step installation script
 
 ## How to install on Heroku
 
@@ -33,11 +40,11 @@ Don't like Facebook? Deal with it, or modify it to integrate with what you like 
   
 ## Whitelist of authors
 
-By default anyone can write in the wiki, as long as they authenticate themselves first (with Facebook). Optionally you can set it such that only certain people in your whitelist of authors can write. Set the environment variable `WHITELIST` to a comma-delimited list of Facebook usernames (no spaces before or after the comma please). If you want to be the only one who can write, just put in your Facebook username. For eg. my Facebook username is 'sausheong' so that's the `WHITELIST` setting for me. Once you have done that, only people in the whitelist can write into the wiki. 
+By default anyone can write in the wiki, as long as they authenticate themselves first (with Facebook). Optionally you can set it such that only certain people in your whitelist of authors can write. Set the environment variable `WHITELIST` to a comma-delimited list of Facebook usernames (no spaces before or after the comma please). If you want to be the only one who can write, just put in your Facebook username. For eg. my Facebook username is 'sausheong' so that's the `WHITELIST` setting for me if I want only myself to write to the wiki. Once you have done that, only people in the whitelist can write into the wiki. 
 
 ## Other settings
 
-Only the Facebook and relational DB are needed, everything else is optional (except maybe). Here are some other environment variables you might want to set:
+Only the Facebook account is really needed, everything else is optional. Here are some other environment variables you might want to set:
 
 * `BOOTSTRAP_THEME` - A URL to the Bootstrap CSS stylesheet you want to use instead of the default. I used the *Journal* theme from Bootswatch. The default is the default Bootstrap stylesheet
 * `WIKI_NAME` - A string to name your wiki. The default is 'EasyWiki'  
