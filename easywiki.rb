@@ -77,8 +77,10 @@ configure do
   # installation steps  
   unless DataMapper.repository(:default).adapter.storage_exists?('page')
     DataMapper.auto_upgrade!
-    page = Page.create url: 'Index'
-    page.versions.create content: '', user_name: 'Wiki-owner'  
+    unless Page.count > 1
+      page = Page.create url: 'Index'
+      page.versions.create content: '', user_name: 'Wiki-owner'  
+    end
   end
 end
 
