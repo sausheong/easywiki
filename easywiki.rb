@@ -208,7 +208,8 @@ __END__
     %br
     %footer
       %p.mute.footer 
-        %small &copy; 
+        %small 
+          &copy; 
           %a{href:'http://about.me/sausheong'} Chang Sau Sheong 
           2013
 
