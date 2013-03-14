@@ -116,7 +116,7 @@ end
 
 delete "/:url" do
   must_login
-  raise 'You cannot delete the index page' if params[:url] == 'index'
+  raise 'You cannot delete the index page' if params[:url] == 'Index'
   page = Page.first url: params[:url]
   raise "You need to be the author of this page to remove it." unless page.user_facebook_id == session[:user]['id']
   page.destroy
@@ -208,7 +208,9 @@ __END__
     %br
     %footer
       %p.mute.footer 
-        %small &copy; Chang Sau Sheong 2013
+        %small &copy; 
+          %a{href:'http://about.me/sausheong'} Chang Sau Sheong 
+          2013
 
 :css
   body { font-size: 20px; line-height: 26px; }
