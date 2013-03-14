@@ -77,8 +77,6 @@ configure do
   # installation steps  
   unless DataMapper.repository(:default).adapter.storage_exists?('page')
     DataMapper.auto_upgrade!
-  end
-  unless Page.count > 0    
     page = Page.create url: 'Index'
     page.versions.create content: '', user_name: 'Wiki-owner'  
   end
@@ -209,7 +207,8 @@ __END__
     %footer
       %p.mute.footer 
         %small &copy; 
-          %a{href:'http://about.me/sausheong'} Chang Sau Sheong 
+          %a{href:'http://about.me/sausheong'} 
+            Chang Sau Sheong 
           2013
 
 :css
