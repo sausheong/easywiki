@@ -197,7 +197,7 @@ __END__
     %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css', type:  'text/css'}
     %link{rel: 'stylesheet', href: '//twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css', type:  'text/css'}
     %link{rel: 'stylesheet', href: '//twitter.github.com/bootstrap/assets/css/docs.css', type:  'text/css'}
-    %script{type: 'text/javascript', src: "//code.jquery.com/jquery-1.9.1.min.js"}    
+    %script{type: 'text/javascript', src: "//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"}    
     %script{type: 'text/javascript', src: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"}
 
   %body
@@ -208,7 +208,8 @@ __END__
     %br
     %footer
       %p.mute.footer 
-        %small &copy; 
+        %small 
+          &copy; 
           %a{href:'http://about.me/sausheong'} Chang Sau Sheong 
           2013
 
