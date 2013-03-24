@@ -1,12 +1,18 @@
 # EasyWiki
 
-EasyWiki is a all-in-a-file wiki web app written in Ruby. What that means is that the entire web application is written into a single file that's ~400 lines of code. It's meant to be easy to deploy, maintain and extend. 
+EasyWiki is a all-in-a-file wiki web application for Rubyists. What that means is that the entire web application is written into a single file that's ~400 lines of code. It's meant to be easy to deploy, maintain and extend. 
 
 Now you can install EasyWiki into Heroku in just 3 steps!
 
 1. Sign up for a Heroku account
 2. Register a Facebook app
 3. Run the installation script and follow the instructions
+
+Here's the list of Easy apps in the same suite:
+
+* EasyBlog - http://github.com/sausheong/easyblog
+* EasyWiki - http://github.com/sausheong/easywiki
+* EasyForum - http://github.com/sausheong/easyforum
 
 ## Features
 
